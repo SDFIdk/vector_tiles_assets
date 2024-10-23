@@ -1,0 +1,21 @@
+{
+  "name": "@dataforsyningen/vector_tiles_assets",
+  "version": "0.0.1",
+  "description": "Klimadatastyrelsen's assets for vectortiles.",
+  "type": "module",
+  "author": {
+    "name": "Klimadatastyrelsen",
+    "email": "support@sdfi.dk",
+    "url": "https://sdfi.dk/"
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "Klimadatastyrelsen",
+    "Vectortiles",
+    "Assets"
+  ],
+  "license": "MIT"
+}
