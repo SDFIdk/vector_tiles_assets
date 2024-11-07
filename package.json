@@ -1,7 +1,7 @@
 {
   "name": "@dataforsyningen/vector_tiles_assets",
   "version": "0.0.1",
-  "description": "Klimadatastyrelsen's assets for vectortiles.",
+  "description": "Klimadatastyrelsen's assets for vector tiles.",
   "type": "module",
   "author": {
     "name": "Klimadatastyrelsen",
@@ -14,7 +14,7 @@
   },
   "keywords": [
     "Klimadatastyrelsen",
-    "Vectortiles",
+    "Vector tiles",
     "Assets"
   ],
   "license": "MIT"
