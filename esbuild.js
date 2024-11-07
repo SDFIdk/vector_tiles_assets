@@ -61,7 +61,7 @@ for(const framework of frameworks) {
           if (!await existsSync(dir)){
             await mkdir(dir, { recursive: true })
           }
-          await writeHTML(`${dir}/${title}.html`, content)
+          await writeHTML(`${dir}/${file}.html`, content)
         } catch (err) {
           console.error(err)
         }
