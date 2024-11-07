@@ -2,20 +2,36 @@
   "name": "@dataforsyningen/vector_tiles_assets",
   "version": "0.0.1",
   "description": "Klimadatastyrelsen's assets for vector tiles.",
+  "main": "./public/index.html",
   "type": "module",
+  "scripts": {
+    "test": "mkdir -p test && cp config.js test/config.js || : && node esbuild.js",
+    "build-glyphs": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDFIdk/vector_tiles_assets.git"
+  },
   "author": {
     "name": "Klimadatastyrelsen",
-    "email": "support@sdfi.dk",
-    "url": "https://sdfi.dk/"
-  },
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
+    "email": "support@kds.dk",
+    "url": "https://www.klimadatastyrelsen.dk/"
   },
   "keywords": [
     "Klimadatastyrelsen",
     "Vector tiles",
     "Assets"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SDFIdk/vector_tiles_assets/issues"
+  },
+  "homepage": "https://github.com/SDFIdk/vector_tiles_assets#readme",
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "esbuild-plugin-copy": "^2.1.1",
+    "ol": "^10.2.1",
+    "proj4": "^2.12.1",
+    "ol-mapbox-style": "^12.3.5"
+  }
 }

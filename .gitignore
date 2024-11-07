@@ -2,4 +2,10 @@
 .DS_Store
 
 # Dependency directories
-node_modules/
+/node_modules/
+
+# Config
+config.js
+
+# Generated test files
+/test/
