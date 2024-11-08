@@ -6,6 +6,8 @@ import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
 import { apply } from 'ol-mapbox-style'
 
+import { projectionDefaults } from './constants'
+
 // get defaults from config
 const mapElement = document.getElementById('map')
 const projConfig = projectionDefaults[mapElement.dataset.projection]
