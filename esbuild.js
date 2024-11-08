@@ -1,11 +1,11 @@
 import esbuild from 'esbuild'
-import { copy } from 'esbuild-plugin-copy'
 import { open, readdir, mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 
 // Variables
-const outdir = 'test'
-const srcDir = 'styles'
+const srcDir = 'src/test'
+const outDir = 'test'
+const styleDir = 'styles'
 const frameworks = [
   'ol',
   'ml'
@@ -43,17 +43,17 @@ async function writeHTML(file, html) {
 console.log('---------------------')
 console.log('Building test HTML')
 for(const framework of frameworks) {
-  const templateHtml = await readHTML(`src/test/${framework}.html`)
-  const topFolders = await readdir(srcDir)
+  const templateHtml = await readHTML(`${srcDir}/${framework}.html`)
+  const topFolders = await readdir(styleDir)
   for(const topFolder of topFolders) {
-    const projections = await readdir(`${srcDir}/${topFolder}`)
+    const projections = await readdir(`${styleDir}/${topFolder}`)
     for(const projection of projections) {
-      const files = await readdir(`${srcDir}/${topFolder}/${projection}`)
+      const files = await readdir(`${styleDir}/${topFolder}/${projection}`)
       for(const file of files) {
         try {
-          const filePath = `/${srcDir}/${topFolder}/${projection}/${file}`
+          const filePath = `/${styleDir}/${topFolder}/${projection}/${file}`
           const title = `${framework}_${projection}_${file}`
-          const dir = `${outdir}/${framework}/${topFolder}/${projection}`
+          const dir = `${outDir}/${framework}/${topFolder}/${projection}`
           const content = templateHtml
             .replace('InsertYourStylefileHere', filePath)
             .replace('InsertYourTitleHere', title)
@@ -76,30 +76,22 @@ console.log('---------------------')
 console.log('Running test server')
 esbuild.context({
   entryPoints: {
-    ol: 'src/test/ol.js',
-    ml: 'src/test/ml.js'
+    'ol/main': `${srcDir}/ol.js`,
+    'ol/style': `${srcDir}/ol.css`,
+    'ml/main': `${srcDir}/ml.js`,
+    'ml/style': `${srcDir}/ml.css`,
   },
-  outdir: outdir,
+  outdir: outDir,
   bundle: true,
   splitting: true,
   format: 'esm',
   loader: {
     '.json': 'copy'
-  },
-  plugins: [
-    copy({
-      resolveFrom: 'cwd',
-      assets: {
-        from: ['./styles/**/*'],
-        to: ['./test/styles']
-      },
-      watch: true
-    })
-  ]
+  }
 })
 .then((result) => {
   result.serve({
-    servedir: outdir,
+    servedir: './',
   }).then(({ host, port }) => {
     console.log('Serving at localhost:' + port)
   })

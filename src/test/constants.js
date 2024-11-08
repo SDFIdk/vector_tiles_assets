@@ -15,6 +15,15 @@ export const projectionDefaults = {
     center: [1193640, 7499389],
     resolutions: [3276.8, 1638.4, 819.2, 409.6, 204.8, 102.4, 51.2, 25.6, 12.8, 6.4, 3.2, 1.6, 0.8, 0.4, 0.2, 0.1],
     zoom: 10,
-    maxZoom: 15
+    maxZoom: 24
+  },
+  'epsg4326': {
+    name: 'EPSG:4326',
+    projection: '+proj=longlat +datum=WGS84 +no_defs +type=crs',
+    extent: [3.3201605, 53.1136553, 17.5577711, 58.3539706],
+    center: [10.129395, 56.127184],
+    resolutions: [3276.8, 1638.4, 819.2, 409.6, 204.8, 102.4, 51.2, 25.6, 12.8, 6.4, 3.2, 1.6, 0.8, 0.4, 0.2, 0.1],
+    zoom: 10,
+    maxZoom: 24
   }
 }
