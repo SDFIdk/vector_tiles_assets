@@ -10,6 +10,14 @@ const frameworks = [
   'ol',
   'ml'
 ]
+/**{
+    name: 'ol',
+    projections: null
+  },
+  {
+    name: 'ml',
+    projections: ['3857']
+  } */
 
 // Helper functions
 async function readHTML(file) {
@@ -46,25 +54,23 @@ for(const framework of frameworks) {
   const templateHtml = await readHTML(`${srcDir}/${framework}.html`)
   const topFolders = await readdir(styleDir)
   for(const topFolder of topFolders) {
-    const projections = await readdir(`${styleDir}/${topFolder}`)
-    for(const projection of projections) {
-      const files = await readdir(`${styleDir}/${topFolder}/${projection}`)
-      for(const file of files) {
-        try {
-          const filePath = `/${styleDir}/${topFolder}/${projection}/${file}`
-          const title = `${framework}_${projection}_${file}`
-          const dir = `${outDir}/${framework}/${topFolder}/${projection}`
-          const content = templateHtml
-            .replace('InsertYourStylefileHere', filePath)
-            .replace('InsertYourTitleHere', title)
-            .replace('InsertYourProjectionHere', projection)
-          if (!await existsSync(dir)){
-            await mkdir(dir, { recursive: true })
-          }
-          await writeHTML(`${dir}/${file}.html`, content)
-        } catch (err) {
-          console.error(err)
+    const files = await readdir(`${styleDir}/${topFolder}/`)
+    for(const file of files) {
+      const projection = 'epsg' + file.match(/^[^_]+/)[0]
+      try {
+        const filePath = `/${styleDir}/${topFolder}//${file}`
+        const title = `${framework}_${file}`
+        const dir = `${outDir}/${framework}/${topFolder}`
+        const content = templateHtml
+          .replace('InsertYourStylefileHere', filePath)
+          .replace('InsertYourTitleHere', title)
+          .replace('InsertYourProjectionHere', projection)
+        if (!await existsSync(dir)){
+          await mkdir(dir, { recursive: true })
         }
+        await writeHTML(`${dir}/${file}.html`, content)
+      } catch (err) {
+        console.error(err)
       }
     }
   }
