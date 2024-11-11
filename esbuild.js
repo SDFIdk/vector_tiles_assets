@@ -89,10 +89,7 @@ esbuild.context({
   outdir: outDir,
   bundle: true,
   splitting: true,
-  format: 'esm',
-  loader: {
-    '.json': 'copy'
-  }
+  format: 'esm'
 })
 .then((result) => {
   result.serve({
