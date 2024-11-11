@@ -17,7 +17,9 @@ const stylefile = mapElement.dataset.stylefile
 proj4.defs(projConfig.name, projConfig.projection)
 register(proj4)
 const projection = getProjection(projConfig.name)
-projection.setExtent(projConfig.extent)
+if (projConfig.name !== 'EPSG:3857') {
+  projection.setExtent(projConfig.extent)
+}
 
 const format = new MVT()
 // Custom setTileLoadFunction to add a header with a token
@@ -58,8 +60,8 @@ const map = new Map({
     extent: projConfig.extent,
     center: projConfig.center,
     zoom: projConfig.zoom,
-    projection,
-    maxZoom: projConfig.maxZoom
+    maxZoom: projConfig.maxZoom,
+    projection
   })
 })
 
