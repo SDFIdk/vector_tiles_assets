@@ -7,17 +7,14 @@ const srcDir = 'src/test'
 const outDir = 'test'
 const styleDir = 'styles'
 const frameworks = [
-  'ol',
-  'ml'
-]
-/**{
-    name: 'ol',
-    projections: null
-  },
   {
     name: 'ml',
-    projections: ['3857']
-  } */
+    projections: ['3857'] // Only create test files for the given projection.
+  },
+  {
+    name: 'ol' // If no projections array, create test files for all projections.
+  }
+]
 
 // Helper functions
 async function readHTML(file) {
@@ -51,26 +48,28 @@ async function writeHTML(file, html) {
 console.log('---------------------')
 console.log('Building test HTML')
 for(const framework of frameworks) {
-  const templateHtml = await readHTML(`${srcDir}/${framework}.html`)
+  const templateHtml = await readHTML(`${srcDir}/${framework.name}.html`)
   const topFolders = await readdir(styleDir)
   for(const topFolder of topFolders) {
     const files = await readdir(`${styleDir}/${topFolder}/`)
     for(const file of files) {
-      const projection = 'epsg' + file.match(/^[^_]+/)[0]
-      try {
-        const filePath = `/${styleDir}/${topFolder}//${file}`
-        const title = `${framework}_${file}`
-        const dir = `${outDir}/${framework}/${topFolder}`
-        const content = templateHtml
-          .replace('InsertYourStylefileHere', filePath)
-          .replace('InsertYourTitleHere', title)
-          .replace('InsertYourProjectionHere', projection)
-        if (!await existsSync(dir)){
-          await mkdir(dir, { recursive: true })
+      const projection = file.match(/^[^_]+/)[0]
+      if (!framework.projections || framework.projections.includes(projection)) {
+        try {
+          const filePath = `/${styleDir}/${topFolder}//${file}`
+          const title = `${framework.name}_${file}`
+          const dir = `${outDir}/${framework.name}/${topFolder}`
+          const content = templateHtml
+            .replace('InsertYourStylefileHere', filePath)
+            .replace('InsertYourTitleHere', title)
+            .replace('InsertYourProjectionHere', projection)
+          if (!await existsSync(dir)){
+            await mkdir(dir, { recursive: true })
+          }
+          await writeHTML(`${dir}/${file}.html`, content)
+        } catch (err) {
+          console.error(err)
         }
-        await writeHTML(`${dir}/${file}.html`, content)
-      } catch (err) {
-        console.error(err)
       }
     }
   }

@@ -5,7 +5,7 @@ import { projectionDefaults } from './constants'
 // get defaults from config
 const mapElement = document.getElementById('map')
 const projConfig = projectionDefaults[mapElement.dataset.projection]
-const projConfigLatLong = projectionDefaults['epsg4326']
+const projConfigLatLong = projectionDefaults['4326']
 const extent = projConfigLatLong.extent
 const stylefile = mapElement.dataset.stylefile
 
