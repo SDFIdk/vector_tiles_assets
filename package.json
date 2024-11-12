@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mkdir -p test && node esbuild.js",
-    "build-glyphs": ""
+    "build-glyphs": "node build-glyphs.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "ol": "^10.2.1",
     "proj4": "^2.12.1",
     "ol-mapbox-style": "^12.3.5",
-    "maplibre-gl": "^4.7.1"
+    "maplibre-gl": "^4.7.1",
+    "fontnik": "^0.7.2"
   }
 }
