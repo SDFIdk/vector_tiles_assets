@@ -117,7 +117,7 @@ if (existsSync(`config.js`)) {
   writeHTML(`${outDir}/config.js`, template)
 } else {
   const template = await readHTML(`config.example.js`)
-  const content = template.replace('[ INSERT TOKEN ]', )
+  const content = template.replace('[ INSERT TOKEN ]', process.env.API_TOKEN)
   writeHTML(`${outDir}/config.js`, content)
 }
 
