@@ -4,6 +4,7 @@ import { open, readdir } from 'node:fs/promises'
 import { existsSync, mkdirSync } from 'node:fs'
 
 // Variables
+const repoPrefix = '/vector_tiles_assets'
 const srcDir = 'src/test'
 const outDir = 'test'
 const styleDir = 'styles'
@@ -71,7 +72,7 @@ for(const framework of frameworks) {
       const projection = file.match(/^[^_]+/)[0]
       if (!framework.projections || framework.projections.includes(projection)) {
         try {
-          const filePath = `/${styleDir}/${topFolder}/${file}`
+          const filePath = `${process.env.NODE_ENV === 'production' ? repoPrefix : ''}/${styleDir}/${topFolder}/${file}`
           const title = `${framework.name}_${fileName}`
           const dir = `${outDir}/${framework.name}`
           const content = templateHtml
@@ -121,6 +122,19 @@ if (existsSync(`config.js`)) {
   writeHTML(`${outDir}/config.js`, content)
 }
 
+// Adjust link to glyphs and copy stylefiles.
+if (process.env.NODE_ENV === 'production') {
+  const topFolders = await readdir(styleDir)
+  for(const topFolder in topFolders) {
+    const files = await readdir(`${styleDir}/${topFolder}/`)
+    for(const file of files) {
+      const template = await readHTML(`${topFolder}/${file}`)
+      const content = template.replace('/glyphs/', `${repoPrefix}/glyphs/`)
+      writeHTML(`${outDir}/config.js`, content)
+    }
+  }
+}
+
 // If prod build, copy assets over to test folder.
 if (process.env.NODE_ENV === 'production') {
   console.log('---------------------')
@@ -137,10 +151,6 @@ if (process.env.NODE_ENV === 'production') {
           {
             from: ['./glyphs/**/*'],
             to: ['./glyphs']
-          },
-          {
-            from: ['./styles/**/*'],
-            to: ['./styles']
           }
         ]
       })
