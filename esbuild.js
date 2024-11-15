@@ -28,7 +28,7 @@ const frameworks = [
 ]
 
 // Helper functions
-async function readHTML(file) {
+async function readFile(file) {
   let filehandle
   let html = ''
   try {
@@ -43,7 +43,7 @@ async function readHTML(file) {
     return html
   }
 }
-async function writeHTML(file, html) {
+async function writeFile(file, html) {
   let filehandle
   try {
     filehandle = await open(file, 'w')
@@ -62,7 +62,7 @@ if (!existsSync(outDir)){
   mkdirSync(outDir)
 }
 for(const framework of frameworks) {
-  const templateHtml = await readHTML(`${srcDir}/${framework.name}.html`)
+  const templateHtml = await readFile(`${srcDir}/${framework.name}.html`)
   const topFolders = await readdir(styleDir)
   framework.files = []
   for(const topFolder of topFolders) {
@@ -82,7 +82,7 @@ for(const framework of frameworks) {
           if (!existsSync(dir)){
             mkdirSync(dir, { recursive: true })
           }
-          await writeHTML(`${dir}/${fileName}.html`, content)
+          await writeFile(`${dir}/${fileName}.html`, content)
           framework.files.push({ name: fileName, link: `${framework.name}/${fileName}.html` })
         } catch (err) {
           console.error(err)
@@ -93,7 +93,7 @@ for(const framework of frameworks) {
 }
 
 // Build test index.html
-let templateHtml = await readHTML(`${srcDir}/index.html`)
+let templateHtml = await readFile(`${srcDir}/index.html`)
 const regex = RegExp('id="test-files">', 'g')
 regex.exec(templateHtml)
 let writeIndex = regex.lastIndex
@@ -110,27 +110,33 @@ for(const framework of frameworks) {
   }
   writeToFile(frameworkSectionEnd)
 }
-await writeHTML(`${outDir}/index.html`, templateHtml)
+await writeFile(`${outDir}/index.html`, templateHtml)
 
 // Create config.js from local config.js or with token from github secret.
 if (existsSync(`config.js`)) {
-  const template = await readHTML(`config.js`)
-  writeHTML(`${outDir}/config.js`, template)
+  const template = await readFile(`config.js`)
+  writeFile(`${outDir}/config.js`, template)
 } else {
-  const template = await readHTML(`config.example.js`)
+  const template = await readFile(`config.example.js`)
   const content = template.replace('[ INSERT TOKEN ]', process.env.API_TOKEN)
-  writeHTML(`${outDir}/config.js`, content)
+  writeFile(`${outDir}/config.js`, content)
 }
 
 // Adjust link to glyphs and copy stylefiles.
 if (process.env.NODE_ENV === 'production') {
   const topFolders = await readdir(styleDir)
-  for(const topFolder in topFolders) {
-    const files = await readdir(`${styleDir}/${topFolder}/`)
+  for(const topFolder of topFolders) {
+    const folderDir = `${styleDir}/${topFolder}`
+    const files = await readdir(folderDir)
     for(const file of files) {
-      const template = await readHTML(`${topFolder}/${file}`)
+      console.log(`${folderDir}/${file}`)
+      const template = await readFile(`${folderDir}/${file}`)
       const content = template.replace('/glyphs/', `${repoPrefix}/glyphs/`)
-      writeHTML(`${outDir}/config.js`, content)
+      const dir = `${outDir}/${folderDir}`
+      if (!existsSync(dir)){
+        mkdirSync(dir, { recursive: true })
+      }
+      writeFile(`${dir}/${file}`, content)
     }
   }
 }
