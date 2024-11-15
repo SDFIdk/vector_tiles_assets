@@ -81,9 +81,8 @@ for(const framework of frameworks) {
           if (!existsSync(dir)){
             mkdirSync(dir, { recursive: true })
           }
-          const testPath = `${dir}/${fileName}.html`
-          await writeHTML(testPath, content)
-          framework.files.push({ name: fileName, link: testPath })
+          await writeHTML(`${dir}/${fileName}.html`, content)
+          framework.files.push({ name: fileName, link: `${framework.name}/${fileName}.html` })
         } catch (err) {
           console.error(err)
         }
@@ -106,19 +105,24 @@ for(const framework of frameworks) {
   const frameworkSectionEnd = `</ul>\n</section>\n`
   writeToFile(frameworkSectionStart)
   for(const file of framework.files) {
-    writeToFile(`<li><a href="/${file.link}">${file.name}</a></li>\n`)
+    writeToFile(`<li><a href="${file.link}">${file.name}</a></li>\n`)
   }
   writeToFile(frameworkSectionEnd)
 }
 await writeHTML(`${outDir}/index.html`, templateHtml)
 
-// If prod build, copy assets over to test folder and create config.js file with API_TOKEN.
-if (process.env.NODE_ENV === 'production') {
-  // Create config.js with token from github secret
+// Create config.js from local config.js or with token from github secret.
+if (existsSync(`config.js`)) {
+  const template = await readHTML(`config.js`)
+  writeHTML(`${outDir}/config.js`, template)
+} else {
   const template = await readHTML(`config.example.js`)
-  const content = template.replace('[ INSERT TOKEN ]', process.env.API_TOKEN)
+  const content = template.replace('[ INSERT TOKEN ]', )
   writeHTML(`${outDir}/config.js`, content)
+}
 
+// If prod build, copy assets over to test folder.
+if (process.env.NODE_ENV === 'production') {
   console.log('---------------------')
   console.log('ESBuild and copying assets')
   esbuild.build({
