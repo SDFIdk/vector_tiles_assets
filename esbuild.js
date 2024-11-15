@@ -118,6 +118,7 @@ if (process.env.NODE_ENV === 'production') {
   const template = await readHTML(`config.example.js`)
   const content = template.replace('[ INSERT TOKEN ]', process.env.API_TOKEN)
   writeHTML(`${outDir}/config.js`, content)
+
   console.log('---------------------')
   console.log('ESBuild and copying assets')
   esbuild.build({
