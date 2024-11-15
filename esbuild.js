@@ -1,4 +1,5 @@
 import esbuild from 'esbuild'
+import { copy } from 'esbuild-plugin-copy'
 import { open, readdir } from 'node:fs/promises'
 import { existsSync, mkdirSync } from 'node:fs'
 
@@ -6,6 +7,13 @@ import { existsSync, mkdirSync } from 'node:fs'
 const srcDir = 'src/test'
 const outDir = 'test'
 const styleDir = 'styles'
+const entryPoints = {
+  'style': `${srcDir}/index.css`,
+  'ol/main': `${srcDir}/ol.js`,
+  'ol/style': `${srcDir}/ol.css`,
+  'ml/main': `${srcDir}/ml.js`,
+  'ml/style': `${srcDir}/ml.css`,
+}
 const frameworks = [
   {
     name: 'ml',
@@ -63,9 +71,9 @@ for(const framework of frameworks) {
       const projection = file.match(/^[^_]+/)[0]
       if (!framework.projections || framework.projections.includes(projection)) {
         try {
-          const filePath = `/${styleDir}/${topFolder}//${file}`
+          const filePath = `/${styleDir}/${topFolder}/${file}`
           const title = `${framework.name}_${fileName}`
-          const dir = `${outDir}/${framework.name}/${topFolder}`
+          const dir = `${outDir}/${framework.name}`
           const content = templateHtml
             .replace('InsertYourStylefileHere', filePath)
             .replace('InsertYourTitleHere', title)
@@ -104,26 +112,46 @@ for(const framework of frameworks) {
 }
 await writeHTML(`${outDir}/index.html`, templateHtml)
 
-// Serve the test pages
-console.log('---------------------')
-console.log('Running test server')
-esbuild.context({
-  entryPoints: {
-    'style': `${srcDir}/index.css`,
-    'ol/main': `${srcDir}/ol.js`,
-    'ol/style': `${srcDir}/ol.css`,
-    'ml/main': `${srcDir}/ml.js`,
-    'ml/style': `${srcDir}/ml.css`,
-  },
-  outdir: outDir,
-  bundle: true,
-  splitting: true,
-  format: 'esm'
-})
-.then((result) => {
-  result.serve({
-    servedir: './',
-  }).then(({ host, port }) => {
-    console.log('Serving at localhost:' + port)
+// If prod build, copy assets over to test folder.
+if (process.env.NODE_ENV === 'production') {
+  console.log('---------------------')
+  console.log('ESBuild and copying assets')
+  esbuild.build({
+    entryPoints,
+    outdir: outDir,
+    bundle: true,
+    splitting: true,
+    format: 'esm',
+    plugins: [
+      copy({
+        assets: [
+          {
+            from: ['./glyphs/**/*'],
+            to: ['./glyphs']
+          },
+          {
+            from: ['./styles/**/*'],
+            to: ['./styles']
+          }
+        ]
+      })
+    ]
   })
-})
+} else { // Test, serve the test pages.
+  console.log('---------------------')
+  console.log('Running test server')
+  esbuild.context({
+    entryPoints,
+    outdir: outDir,
+    bundle: true,
+    splitting: true,
+    format: 'esm'
+  })
+  .then((result) => {
+    result.serve({
+      servedir: './',
+    }).then(({ host, port }) => {
+      console.log('Serving at localhost:' + port)
+    })
+  })
+}
