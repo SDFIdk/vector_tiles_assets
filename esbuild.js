@@ -1,6 +1,6 @@
 import esbuild from 'esbuild'
-import { open, readdir, mkdir } from 'node:fs/promises'
-import { existsSync } from 'node:fs'
+import { open, readdir } from 'node:fs/promises'
+import { existsSync, mkdirSync } from 'node:fs'
 
 // Variables
 const srcDir = 'src/test'
@@ -9,10 +9,12 @@ const styleDir = 'styles'
 const frameworks = [
   {
     name: 'ml',
+    longName: 'MapLibre',
     projections: ['3857'] // Only create test files for the given projection.
   },
   {
-    name: 'ol' // If no projections array, create test files for all projections.
+    name: 'ol', // If no projections array, create test files for all projections.
+    longName: 'OpenLayers'
   }
 ]
 
@@ -44,29 +46,36 @@ async function writeHTML(file, html) {
   }
 }
 
-// Start building html files
+// Start building html test files
 console.log('---------------------')
 console.log('Building test HTML')
+if (!existsSync(outDir)){
+  mkdirSync(outDir)
+}
 for(const framework of frameworks) {
   const templateHtml = await readHTML(`${srcDir}/${framework.name}.html`)
   const topFolders = await readdir(styleDir)
+  framework.files = []
   for(const topFolder of topFolders) {
     const files = await readdir(`${styleDir}/${topFolder}/`)
     for(const file of files) {
+      const fileName = file.slice(0, -5)
       const projection = file.match(/^[^_]+/)[0]
       if (!framework.projections || framework.projections.includes(projection)) {
         try {
           const filePath = `/${styleDir}/${topFolder}//${file}`
-          const title = `${framework.name}_${file}`
+          const title = `${framework.name}_${fileName}`
           const dir = `${outDir}/${framework.name}/${topFolder}`
           const content = templateHtml
             .replace('InsertYourStylefileHere', filePath)
             .replace('InsertYourTitleHere', title)
             .replace('InsertYourProjectionHere', projection)
-          if (!await existsSync(dir)){
-            await mkdir(dir, { recursive: true })
+          if (!existsSync(dir)){
+            mkdirSync(dir, { recursive: true })
           }
-          await writeHTML(`${dir}/${file}.html`, content)
+          const testPath = `${dir}/${fileName}.html`
+          await writeHTML(testPath, content)
+          framework.files.push({ name: fileName, link: testPath })
         } catch (err) {
           console.error(err)
         }
@@ -75,12 +84,32 @@ for(const framework of frameworks) {
   }
 }
 
-// TODO: copy styles, glyphs and sprites to the test folder.
+// Build test index.html
+let templateHtml = await readHTML(`${srcDir}/index.html`)
+const regex = RegExp('id="test-files">', 'g')
+regex.exec(templateHtml)
+let writeIndex = regex.lastIndex
+const writeToFile = (content)=> {
+  templateHtml = templateHtml.slice(0, writeIndex) + content + templateHtml.slice(writeIndex)
+  writeIndex += content.length
+}
+for(const framework of frameworks) {
+  const frameworkSectionStart = `\n<section>\n<h2>${framework.longName}</h2>\n<ul>\n`
+  const frameworkSectionEnd = `</ul>\n</section>\n`
+  writeToFile(frameworkSectionStart)
+  for(const file of framework.files) {
+    writeToFile(`<li><a href="/${file.link}">${file.name}</a></li>\n`)
+  }
+  writeToFile(frameworkSectionEnd)
+}
+await writeHTML(`${outDir}/index.html`, templateHtml)
+
 // Serve the test pages
 console.log('---------------------')
 console.log('Running test server')
 esbuild.context({
   entryPoints: {
+    'style': `${srcDir}/index.css`,
     'ol/main': `${srcDir}/ol.js`,
     'ol/style': `${srcDir}/ol.css`,
     'ml/main': `${srcDir}/ml.js`,

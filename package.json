@@ -5,7 +5,7 @@
   "main": "./public/index.html",
   "type": "module",
   "scripts": {
-    "test": "mkdir -p test && node esbuild.js",
+    "test": "node esbuild.js",
     "build-glyphs": "node build-glyphs.js"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "proj4": "^2.12.1",
     "ol-mapbox-style": "^12.3.5",
     "maplibre-gl": "^4.7.1",
-    "fontnik": "^0.7.2"
+    "fontnik": "^0.7.2",
+    "@dataforsyningen/designsystem": "^8.1.1"
   }
 }
