@@ -112,8 +112,12 @@ for(const framework of frameworks) {
 }
 await writeHTML(`${outDir}/index.html`, templateHtml)
 
-// If prod build, copy assets over to test folder.
+// If prod build, copy assets over to test folder and create config.js file with API_TOKEN.
 if (process.env.NODE_ENV === 'production') {
+  // Create config.js with token from github secret
+  const template = await readHTML(`config.example.js`)
+  const content = template.replace('[ INSERT TOKEN ]', process.env.API_TOKEN)
+  writeHTML(`${outDir}/config.js`, content)
   console.log('---------------------')
   console.log('ESBuild and copying assets')
   esbuild.build({
