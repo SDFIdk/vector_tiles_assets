@@ -2,7 +2,7 @@ export const projectionDefaults = {
   '25832': {
     name: 'EPSG:25832',
     projection: '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs',
-    extent: [120000, 5661139.2, 958860.8, 6500000],
+    extent: [139000, 5661139.2, 977860.8, 6500000],
     center: [566100, 6217900],
     resolutions: [3276.8, 1638.4, 819.2, 409.6, 204.8, 102.4, 51.2, 25.6, 12.8, 6.4, 3.2, 1.6, 0.8, 0.4, 0.2, 0.1],
     zoom: 7,

@@ -1,7 +1,7 @@
 {
     "version": 8,
     "name": "name",
-    "glyphs": "{fontstack}{range}",
+    "glyphs": "/glyphs/{fontstack}/{range}.pbf",
     "sources": {
         "vector-source": {
             "type": "vector",
@@ -22,13 +22,14 @@
             "source": "vector-source"
         },
         {
-            "id": "tekst_linje_færgerute",
+            "id": "linje_færgerute",
             "source-layer": "tekst_linje",
+			"minzoom": 1,
             "type": "line",
             "filter": ["all", ["==", "type", "færgerute"]],
             "paint": {
                 "line-color": "#808080",
-                "line-dasharray": [6.5, 6.5]
+                "line-dasharray": [2, 4]
             },
             "source": "vector-source"
         },
@@ -55,7 +56,7 @@
         {
             "id": "bebygget_by",
             "source-layer": "bebygget",
-            "minzoom": 3,
+            "minzoom": 2,
             "maxzoom": 9,
             "type": "fill",
             "filter": ["all", ["==", "type", "by"]],
@@ -101,7 +102,7 @@
         {
             "id": "natur_skov",
             "source-layer": "natur",
-            "minzoom": 9,
+            "minzoom": 2,
             "type": "fill",
             "filter": ["all", ["==", "type", "skov"]],
             "paint": {
@@ -112,11 +113,12 @@
         {
             "id": "infrastruktur_startbane",
             "source-layer": "infrastruktur",
+			"minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "lufthavn"]],
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": 3
+                "line-width": 1
             },
             "source": "vector-source"
         },
@@ -143,33 +145,10 @@
             "source": "vector-source"
         },
         {
-            "id": "vand_vandløbsflade",
-            "source-layer": "vand",
-            "minzoom": 9,
-            "maxzoom": 16,
-            "type": "fill",
-            "filter": ["all", ["==", "type", "vandløbsflade"]],
-            "paint": {
-                "fill-color": "#1F1F1F"
-            },
-            "source": "vector-source"
-        },
-        {
-            "id": "vand_vandløbsflade_outline",
-            "source-layer": "vand",
-            "minzoom": 9,
-            "maxzoom": 16,
-            "type": "line",
-             "filter": ["all", ["==", "type", "vandløbsflade"]],
-            "paint": {
-                "line-color": "#1F1F1F",
-                "line-width": 0.8
-            },
-            "source": "vector-source"
-        },
-        {
             "id": "vandloeb",
             "source-layer": "vandloeb",
+			"minzoom": 7,
+			"maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "subtype", "almindelig"]],
             "paint": {
@@ -178,9 +157,22 @@
             },
             "source": "vector-source"
         },
+		{
+            "id": "vandloeb_f",
+            "source-layer": "vandloeb",
+			"minzoom": 9,
+            "type": "line",
+            "filter": ["all", ["==", "subtype", "almindelig"]],
+            "paint": {
+                "line-color": "#1F1F1F",
+                "line-width": 1
+            },
+            "source": "vector-source"
+        },
         {
             "id": "vandloeb_o12",
             "source-layer": "vandloeb",
+			"minzoom": 4,
             "type": "line",
             "filter": ["all", ["==", "type", "12-"]],
             "paint": {
@@ -202,11 +194,33 @@
             },
             "source": "vector-source"
         },
+		{
+            "id": "vand_vandløbsflade",
+            "source-layer": "vand",
+            "minzoom": 9,
+            "type": "fill",
+            "filter": ["all", ["==", "type", "vandløbsflade"]],
+            "paint": {
+                "fill-color": "#1F1F1F"
+            },
+            "source": "vector-source"
+        },
+        {
+            "id": "vand_vandløbsflade_outline",
+            "source-layer": "vand",
+            "minzoom": 9,
+            "type": "line",
+             "filter": ["all", ["==", "type", "vandløbsflade"]],
+            "paint": {
+                "line-color": "#1F1F1F",
+                "line-width": 0.8
+            },
+            "source": "vector-source"
+        },
         {
             "id": "vand_sø",
             "source-layer": "vand",
             "minzoom": 9,
-            "maxzoom": 16,
             "type": "fill",
              "filter": ["all", ["==", "type", "sø"]],
             "paint": {
@@ -218,7 +232,6 @@
             "id": "vand_sø_outline",
             "source-layer": "vand",
             "minzoom": 9,
-            "maxzoom": 16,
             "type": "line",
              "filter": ["all", ["==", "type", "sø"]],
             "paint": {
@@ -230,7 +243,7 @@
         {
             "id": "vand_sø_>50000",
             "source-layer": "vand",
-            "minzoom": 3,
+            "minzoom": 4,
             "maxzoom": 9,
             "type": "fill",
              "filter": ["all", ["==", "type", "sø"]],
@@ -258,6 +271,19 @@
             "filter": ["all", ["==", "type", "sti"]],
             "paint": {
                 "line-color": "#B2B2B2",
+                "line-width": 0.5
+            },
+            "source": "vector-source"
+        },
+		{
+            "id": "veje_tilfrakørselvej_zoom9",
+            "source-layer": "veje",
+            "minzoom": 6,
+            "type": "line",
+            "filter": ["all", ["==", "subtype", "til og frakørsel"]],
+            "layout": {"line-cap": "butt", "visibility": "visible"},
+            "paint": {
+                "line-color": "#3D3D3D",
                 "line-width": 1
             },
             "source": "vector-source"
@@ -271,20 +297,7 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[9, 1.5], [10, 3], [14, 9]]}
-            },
-            "source": "vector-source"
-        },
-        {
-            "id": "veje_tilfrakørselvej_zoom9",
-            "source-layer": "veje",
-            "maxzoom": 9,
-            "type": "line",
-            "filter": ["all", ["==", "subtype", "til og frakørsel"]],
-            "layout": {"line-cap": "butt", "visibility": "visible"},
-            "paint": {
-                "line-color": "#3D3D3D",
-                "line-width": 1
+                "line-width": {"stops": [[9, 3], [10, 5], [11, 6], [12, 7], [13, 8]]}
             },
             "source": "vector-source"
         },
@@ -297,7 +310,7 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[9, 1.2], [10, 2], [11, 4.5], [12, 6]]}
+                "line-width": {"stops": [[9, 1.5], [10, 2.5], [11, 3.5], [12, 6], [13, 8]]}
             },
             "source": "vector-source"
         },
@@ -310,7 +323,7 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[9, 1.5], [10, 2.5], [11, 5.5], [12, 6]]}
+                "line-width": {"stops": [[9, 1.5], [10, 2.5], [11, 3.5], [12, 6], [13, 8]]}
             },
             "source": "vector-source"
         },
@@ -323,7 +336,7 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": 0.5
+                "line-width": 1
             },
             "source": "vector-source"
         },
@@ -336,20 +349,21 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[9, 2.5], [10, 3.5], [11, 6], [12, 6.5]]}
+                "line-width": {"stops": [[9, 2.5], [10, 3], [11, 5], [12, 7], [18, 9]]}
             },
             "source": "vector-source"
         },
         {
             "id": "veje_sekundær_<zoom9",
             "source-layer": "veje",
+			"minzoom" : 5,
             "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "sekundærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[6, 0.5], [7, 0.5], [8, 1], [9, 3]]}
+                "line-width": {"stops": [[6, 1], [8, 2], [9, 3]]}
             },
             "source": "vector-source"
         },
@@ -362,13 +376,14 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[9, 3], [10, 5.5], [11, 6.5], [12, 7]]}
+                "line-width": {"stops": [[9, 3], [10, 4], [11, 6], [12, 8], [13, 10]]}
             },
             "source": "vector-source"
         },
         {
             "id": "veje_primær_<zoom9",
             "source-layer": "veje",
+			"minzoom" : 4,
             "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "primærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
@@ -388,13 +403,14 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[9, 4.5], [10, 6], [11, 8], [12, 10]]}
+                "line-width": {"stops": [[9, 4], [10, 5], [11, 7], [12, 9], [13, 11]]}
             },
             "source": "vector-source"
         },
         {
             "id": "veje_motortrafikvej_<zoom9",
             "source-layer": "veje",
+			"minzoom" : 4,
             "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "motortrafikvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
@@ -414,26 +430,28 @@
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[9, 5], [10, 7], [11, 10], [12, 11], [13, 11.5]]}
+                "line-width": {"stops": [[9, 4.5], [10, 6], [11, 8], [12, 10], [13, 12]]}
             },
             "source": "vector-source"
         },
         {
             "id": "veje_motorvej_<zoom9",
             "source-layer": "veje",
+			"minzoom" : 2,
             "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "motorvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
             "paint": {
                 "line-color": "#3D3D3D",
-                "line-width": {"stops": [[2, 3], [3, 3], [6, 4], [9, 4]]}
+                "line-width": {"stops": [[5, 3], [6, 3], [7, 4], [8, 5]]}
             },
             "source": "vector-source"
         },
         {
             "id": "veje_tunnel",
             "source-layer": "veje",
+			"minzoom": 3,
             "type": "line",
             "filter": ["all", ["==", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -447,7 +465,7 @@
         {
             "id": "jernbane",
             "source-layer": "jernbane",
-            "minzoom" : 9,
+            "minzoom": 2,
             "type": "line",
             "filter": [
                 "all",
@@ -456,7 +474,7 @@
             ],
             "paint": {
                 "line-color": "#1f1f1f",
-                "line-width": {"stops": [[0, 1], [7, 1], [8, 1], [9, 3]]}
+                "line-width": {"stops": [[2, 1], [9, 3]]}
             },
             "source": "vector-source"
         },
@@ -464,7 +482,7 @@
             "id": "jernbane_inline",
             "source-layer": "jernbane",
             "type": "line",
-            "minzoom" : 9,
+            "minzoom": 9,
             "filter": [
                 "all",
                 ["!=", "niveau", "tunnel"],
@@ -478,24 +496,9 @@
             "source": "vector-source"
         },
         {
-            "id": "jernbane_<zoom9",
-            "source-layer": "jernbane",
-            "maxzoom" : 9,
-            "type": "line",
-            "filter": [
-                "all",
-                ["!=", "niveau", "tunnel"],
-                ["!=", "subtype", "sidespor"]
-            ],
-            "paint": {
-                "line-color": "#1f1f1f",
-                "line-width": {"stops": [[0, 1], [7, 1], [8, 2], [9, 3]]}
-            },
-            "source": "vector-source"
-        },
-        {
             "id": "jernbane_tunnel",
             "source-layer": "jernbane",
+			"minzoom": 4,
             "type": "line",
             "filter": [
                 "all",
@@ -512,31 +515,27 @@
         {
             "id": "punkter_togstation",
             "source-layer": "punkter",
-            "minzoom" : 11,
+            "minzoom": 11,
             "type": "circle",
             "filter": ["all", ["==", "type", "togstation"]],
-            "layout": {
-                "icon-allow-overlap": false,
-                "icon-ignore-placement": false
-            },
             "paint": {
                 "circle-color": "#919191",
-                "circle-radius": 6
+                "circle-radius": 7
             },
             "source": "vector-source"
         },
         {
             "id": "tekst_punkt_bebyggelse<1000000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 9,
-            "maxzoom" : 11,
+            "minzoom": 9,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], ["<=", "subsubtype", 1000000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": 12,
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[9, 12], [10, 13], [11, 14]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
@@ -551,15 +550,15 @@
         {
             "id": "tekst_punkt_bebyggelse<2500000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 9,
-            "maxzoom" : 11,
+            "minzoom": 9,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], [">=", "subsubtype", 1000000], ["<=", "subsubtype", 2500000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[8, 12], [9, 15]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[9, 15], [10, 16], [11, 17]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
@@ -574,15 +573,15 @@
         {
             "id": "tekst_punkt_bebyggelse<5000000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 8,
-            "maxzoom" : 10,
+            "minzoom": 7,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], [">=", "subsubtype", 2500000], ["<=", "subsubtype", 5000000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[8, 14], [9, 17]]},
-                "text-font": ["Verdana"],
+                 "text-size": {"stops": [[7, 13], [8, 15], [9, 17], [10, 18]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
@@ -597,15 +596,15 @@
         {
             "id": "tekst_punkt_bebyggelse>5000000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 7,
-            "maxzoom" : 10,
+            "minzoom": 7,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], [">=", "subsubtype", 5000000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[7, 15], [8, 17], [10, 24]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[7, 15], [8, 17], [9, 19], [10, 21]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
@@ -620,14 +619,14 @@
         {
             "id": "vejnavne",
             "source-layer": "veje",
-            "minzoom" : 10,
+            "minzoom": 10,
             "type": "symbol",
             "filter": ["all", ["!=", "type", "sti"], ["!=", "subtype", "til og frakørsel"], ["!=", "subtype", "rundkørsel"]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
                 "text-size": 13,
-				"text-font": ["Verdana"],
+				"text-font": ["Open Sans Regular"],
                 "text-padding": 10,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false,
@@ -646,16 +645,16 @@
         {
             "id": "tekst_punkt_by<100",
             "source-layer": "tekst_punkt",
-            "minzoom" : 8,
-            "maxzoom" : 11,
+            "minzoom": 6,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], ["<=", "subsubtype", 100]],
             "layout": {
                 "text-field": "{navn}",
-            "text-anchor": "center",
-                "text-size": {"stops": [[8, 10], [9, 10], [10, 11]]},
-                "text-font": ["Verdana"],
+                "text-anchor": "center",
+                "text-size": {"stops": [[7, 11], [8, 12], [9, 13], [10, 14]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
+				"text-offset": [2, -1],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -669,16 +668,16 @@
         {
             "id": "tekst_punkt_by<500",
             "source-layer": "tekst_punkt",
-            "minzoom" : 6,
-            "maxzoom" : 11,
+            "minzoom": 6,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 100], ["<=", "subsubtype", 500]],
             "layout": {
                 "text-field": "{navn}",
-            "text-anchor": "center",
-                "text-size": {"stops": [[6, 10], [7, 10], [8, 11], [9, 11]]},
-                "text-font": ["Verdana"],
+                "text-anchor": "center",
+                "text-size": {"stops": [[6, 11], [7, 12], [8, 13], [9, 14], [10, 15]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
+				"text-offset": [2, -1],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -692,16 +691,17 @@
         {
             "id": "tekst_punkt_by<1000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 6,
-            "maxzoom" : 11,
+            "minzoom": 5,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 500], ["<=", "subsubtype", 1000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[6, 10], [7, 10], [8, 12], [9, 12]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[5, 11], [6, 12], [7, 13], [8, 14], [9, 15], [10, 16]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
+				"text-offset": [2, -1],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -715,16 +715,17 @@
         {
             "id": "tekst_punkt_by<5000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 5,
-            "maxzoom" : 11,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 1000], ["<=", "subsubtype", 5000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[5, 10], [6, 11], [7, 11], [8, 13], [9, 15]]},
-                "text-font": ["Verdana"],
-                "text-padding": 5,
+                "text-size": {"stops": [[3, 11], [5, 11], [6, 11], [7, 12], [8, 13], [9, 14], [10, 15], [11, 16], [12, 17]]},
+                "text-font": ["Open Sans Regular"],
+                "text-padding": 1,
+				"text-offset": [2, -1],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -738,16 +739,17 @@
         {
             "id": "tekst_punkt_by<10000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 4,
-            "maxzoom" : 10,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 5000], ["<=", "subsubtype", 10000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[4, 10], [5, 11], [6, 10], [7, 13], [8, 15], [9, 17]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[3, 11], [4, 12], [5, 12], [6, 14], [7, 14], [8, 15], [9, 16], [10, 17]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
+				"text-offset": [1, 1],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -761,16 +763,17 @@
 		{
             "id": "tekst_punkt_by<25000_B",
             "source-layer": "tekst_punkt",
-            "minzoom" : 6,
-			"maxzoom" : 10,
+            "minzoom": 4,
+			"maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 10000], ["<=", "subsubtype", 25000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "bottom",
-                "text-size": {"stops": [[6, 12], [7, 14], [8, 18], [9, 20]]},
-                "text-font": ["Verdana Bold"],
+                "text-size": {"stops": [[5, 12], [6, 14], [7, 15], [8, 16], [9, 17], [10, 18]]},
+                "text-font": ["Open Sans Bold"],
                 "text-padding": 5,
+				"text-offset": [1, 1],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -784,15 +787,17 @@
         {
             "id": "tekst_punkt_by<25000",
             "source-layer": "tekst_punkt",
-            "maxzoom" : 6,
+       		"minzoom": 2,
+            "maxzoom": 4,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 10000], ["<=", "subsubtype", 25000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "bottom",
-                "text-size": {"stops": [[4, 11], [5, 12]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[3, 12], [4, 13], [5, 13]]},
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5,
+				"text-offset": [1.5, 1.5],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -806,16 +811,17 @@
         {
             "id": "tekst_punkt_by<50000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 10,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 25000], ["<=", "subsubtype", 50000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "top",
-                "text-size": {"stops": [[4, 11], [5, 13], [6, 14], [7, 15], [8, 19], [9, 21]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[3, 11], [4, 13], [5, 15], [6, 15], [7, 16], [8, 17], [9, 18], [10, 19]]},
+                "text-font": ["Open Sans Bold"],
                 "text-padding": 5,
+				"text-offset": [2, 0],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -829,16 +835,17 @@
         {
             "id": "tekst_punkt_by<100000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 10,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 50000], ["<=", "subsubtype", 100000]],
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[4, 13], [5, 14], [6, 15], [7, 17], [8, 21], [9, 23]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[3, 12], [4, 15], [5, 16], [6, 16], [7, 18], [8, 19], [9, 20], [10, 21]]},
+                "text-font": ["Open Sans Bold"],
                 "text-padding": 1,
+				"text-offset": [2, 0],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -852,16 +859,17 @@
         {
             "id": "tekst_punkt_by<300000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 9,
+            "minzoom": 2,
+            "maxzoom": 9,
             "type": "symbol",
-            "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 100000], ["<=", "subsubtype", 300000]],
+            "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 105000], ["<=", "subsubtype", 300000]],
             "layout": {
                  "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": {"stops": [[4, 15], [5, 17], [6, 18], [7, 19], [8, 23], [9, 25]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[3, 15], [4, 18], [5, 22], [6, 26], [7, 30], [8, 32], [9, 34]]},
+                "text-font": ["Open Sans Bold"],
                 "text-padding": 1,
+				"text-offset": [3, 0],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -875,16 +883,17 @@
         {
             "id": "tekst_punkt_by>300000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 11,
+            "minzoom": 2,
+            "maxzoom": 9,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 300000]],
             "layout": {
                  "text-field": "{navn}",
                 "text-anchor": "left",
-                "text-size": {"stops": [[4, 17], [5, 22], [6, 24], [7, 26], [8, 28], [9, 30]]},
-                "text-font": ["Verdana"],
+                "text-size": {"stops": [[3, 20], [4, 24], [5, 30], [6, 34], [7, 40], [8, 44]]},
+                "text-font": ["Open Sans Bold"],
                 "text-padding": 1,
+				"text-offset": [1, 1],
                 "text-allow-overlap": false,
                 "text-ignore-placement": false
             },
@@ -898,15 +907,15 @@
         {
             "id": "tekst_punkt_stationsnavn",
             "source-layer": "tekst_punkt",
-            "minzoom" : 9,
+            "minzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "tog"]],
             "layout": {
                 "text-field": "{navn}",
                 "text-offset": [1.5, 3],
                 "text-transform": "uppercase",
-                "text-size": 10,
-                "text-font": ["Verdana bold"],
+                "text-size": 11,
+                "text-font": ["Open Sans Regular"],
                 "text-padding": 5
             },
             "paint": {

@@ -1,6 +1,6 @@
 {
   "name": "@dataforsyningen/vector_tiles_assets",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Klimadatastyrelsen's assets for vector tiles.",
   "main": "./public/index.html",
   "type": "module",

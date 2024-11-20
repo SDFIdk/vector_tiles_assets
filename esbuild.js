@@ -36,6 +36,7 @@ const frameworks = [
     projections: ['3857']
   }
 ]
+const defaultProjection = '25832'
 
 // Helper functions
 async function readFile(file) {
@@ -79,7 +80,8 @@ for(const framework of frameworks) {
     const files = await readdir(`${styleDir}/${topFolder}/`)
     for(const file of files) {
       const fileName = file.slice(0, -5)
-      const projection = file.match(/^[^_]+/)[0]
+      const match = file.match(/^\d+(?=_)/ )
+      const projection = match? match[0] : defaultProjection
       if (!framework.projections || framework.projections.includes(projection)) {
         try {
           const filePath = `${process.env.NODE_ENV === 'production' ? repoPrefix : ''}/${styleDir}/${topFolder}/${file}`
