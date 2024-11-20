@@ -28,7 +28,9 @@
     "url": "https://github.com/SDFIdk/vector_tiles_assets/issues"
   },
   "homepage": "https://github.com/SDFIdk/vector_tiles_assets#readme",
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "esbuild": "^0.24.0",
     "esbuild-plugin-copy": "^2.1.1",
