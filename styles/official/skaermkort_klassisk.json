@@ -323,7 +323,7 @@
                 "text-field": "{navn}",
                 "text-transform": "uppercase",
                 "text-anchor": "top",
-				"text-font": ["Open Sans Regular Italic"],
+				"text-font": ["Open Sans Italic"],
                 "text-size": 10,
                 "text-padding": 10,
                 "text-letter-spacing": 0.3,
