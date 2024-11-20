@@ -11,9 +11,10 @@ const stylefile = mapElement.dataset.stylefile
 
 // Custom transformRequest to add a header with a token
 const transformRequest = (url, resourceType) => {
+  const headers = resourceType === 'Tile' ? { 'token': config.API_TOKEN } : {}
   return {
-    url: url,
-    headers: { 'token': config.API_TOKEN }
+    url,
+    headers
   }
 }
 
