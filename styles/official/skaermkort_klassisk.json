@@ -586,7 +586,7 @@
         {
             "id": "jernbane",
             "source-layer": "jernbane",
-            "minzoom" : 2,
+            "minzoom": 2,
             "type": "line",
             "filter": [
                 "all",
@@ -603,7 +603,7 @@
             "id": "jernbane_inline",
             "source-layer": "jernbane",
             "type": "line",
-            "minzoom" : 9,
+            "minzoom": 9,
             "filter": [
                 "all",
                 ["!=", "niveau", "tunnel"],
@@ -619,7 +619,7 @@
         {
             "id": "jernbane_tunnel",
             "source-layer": "jernbane",
-            "minzoom" : 3,
+            "minzoom": 3,
             "type": "line",
             "filter": [
                 "all",
@@ -636,7 +636,7 @@
         {
             "id": "punkter_togstation",
             "source-layer": "punkter",
-            "minzoom" : 5,
+            "minzoom": 5,
             "type": "circle",
             "filter": ["all", ["==", "type", "togstation"]],
             "paint": {

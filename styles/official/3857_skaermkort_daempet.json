@@ -542,6 +542,7 @@
         {
             "id": "veje_tunnel",
             "source-layer": "veje",
+			"minzoom": 8,
             "type": "line",
             "filter": ["all", ["==", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -555,7 +556,7 @@
         {
             "id": "jernbane",
             "source-layer": "jernbane",
-            "minzoom" : 7,
+            "minzoom": 7,
             "type": "line",
             "filter": [
                 "all",
@@ -572,7 +573,7 @@
             "id": "jernbane_inline",
             "source-layer": "jernbane",
             "type": "line",
-            "minzoom" : 14,
+            "minzoom": 14,
             "filter": [
                 "all",
                 ["!=", "niveau", "tunnel"],
@@ -588,8 +589,8 @@
         {
             "id": "jernbane_<zoom9",
             "source-layer": "jernbane",
-			"minzoom" : 7,
-            "maxzoom" : 14,
+			"minzoom": 7,
+            "maxzoom": 14,
             "type": "line",
             "filter": [
                 "all",
@@ -605,7 +606,7 @@
         {
             "id": "jernbane_tunnel",
             "source-layer": "jernbane",
-			"minzoom" : 8,
+			"minzoom": 8,
             "type": "line",
             "filter": [
                 "all",
@@ -622,7 +623,7 @@
         {
             "id": "punkter_togstation",
             "source-layer": "punkter",
-            "minzoom" : 16,
+            "minzoom": 16,
             "type": "circle",
             "filter": ["all", ["==", "type", "togstation"]],
             "paint": {
@@ -634,8 +635,8 @@
         {
             "id": "tekst_punkt_bebyggelse<1000000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 14,
-            "maxzoom" : 16,
+            "minzoom": 14,
+            "maxzoom": 16,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], ["<=", "subsubtype", 1000000]],
             "layout": {

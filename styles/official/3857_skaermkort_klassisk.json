@@ -581,7 +581,7 @@
         {
             "id": "veje_tunnel",
             "source-layer": "veje",
-            "minzoom" : 8,
+            "minzoom": 8,
             "type": "line",
             "filter": ["all", ["==", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -595,7 +595,7 @@
         {
             "id": "jernbane",
             "source-layer": "jernbane",
-            "minzoom" : 7,
+            "minzoom": 7,
             "type": "line",
             "filter": [
                 "all",
@@ -612,7 +612,7 @@
             "id": "jernbane_inline",
             "source-layer": "jernbane",
             "type": "line",
-            "minzoom" : 14,
+            "minzoom": 14,
             "filter": [
                 "all",
                 ["!=", "niveau", "tunnel"],
@@ -645,7 +645,7 @@
 		{
             "id": "punkter_togstation",
             "source-layer": "punkter",
-            "minzoom" : 10,
+            "minzoom": 10,
             "type": "circle",
             "filter": ["all", ["==", "type", "togstation"]],
             "paint": {

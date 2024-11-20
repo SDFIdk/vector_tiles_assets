@@ -542,6 +542,7 @@
         {
             "id": "veje_tunnel",
             "source-layer": "veje",
+			"minzoom" : 3,
             "type": "line",
             "filter": ["all", ["==", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -555,7 +556,7 @@
         {
             "id": "jernbane",
             "source-layer": "jernbane",
-            "minzoom" : 2,
+            "minzoom": 2,
             "type": "line",
             "filter": [
                 "all",
@@ -572,7 +573,7 @@
             "id": "jernbane_inline",
             "source-layer": "jernbane",
             "type": "line",
-            "minzoom" : 9,
+            "minzoom": 9,
             "filter": [
                 "all",
                 ["!=", "niveau", "tunnel"],
@@ -588,7 +589,7 @@
         {
             "id": "jernbane_tunnel",
             "source-layer": "jernbane",
-			"minzoom" : 4,
+			"minzoom": 4,
             "type": "line",
             "filter": [
                 "all",
@@ -605,7 +606,7 @@
         {
             "id": "punkter_togstation",
             "source-layer": "punkter",
-            "minzoom" : 11,
+            "minzoom": 11,
             "type": "circle",
             "filter": ["all", ["==", "type", "togstation"]],
             "paint": {
@@ -617,8 +618,8 @@
         {
             "id": "tekst_punkt_bebyggelse<1000000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 9,
-            "maxzoom" : 11,
+            "minzoom": 9,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], ["<=", "subsubtype", 1000000]],
             "layout": {
@@ -638,8 +639,8 @@
         {
             "id": "tekst_punkt_bebyggelse<2500000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 9,
-            "maxzoom" : 11,
+            "minzoom": 9,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], [">=", "subsubtype", 1000000], ["<=", "subsubtype", 2500000]],
             "layout": {
@@ -659,8 +660,8 @@
         {
             "id": "tekst_punkt_bebyggelse<5000000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 7,
-            "maxzoom" : 11,
+            "minzoom": 7,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], [">=", "subsubtype", 2500000], ["<=", "subsubtype", 5000000]],
             "layout": {
@@ -680,8 +681,8 @@
         {
             "id": "tekst_punkt_bebyggelse>5000000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 7,
-            "maxzoom" : 11,
+            "minzoom": 7,
+            "maxzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "type", "bebyggelse"], ["!=", "subtype", "by"], ["!=", "subtype", "kolonihave"], [">=", "subsubtype", 5000000]],
             "layout": {
@@ -701,7 +702,7 @@
         {
             "id": "vejnavne",
             "source-layer": "veje",
-            "minzoom" : 10,
+            "minzoom": 10,
             "type": "symbol",
             "filter": ["all", ["!=", "type", "sti"], ["!=", "subtype", "til og frakørsel"], ["!=", "subtype", "rundkørsel"]],
             "layout": {
@@ -724,7 +725,7 @@
         {
             "id": "tekst_punkt_by<100",
             "source-layer": "tekst_punkt",
-            "minzoom" : 6,
+            "minzoom": 6,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], ["<=", "subsubtype", 100]],
             "layout": {
@@ -745,7 +746,7 @@
         {
             "id": "tekst_punkt_by<500",
             "source-layer": "tekst_punkt",
-            "minzoom" : 6,
+            "minzoom": 6,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 100], ["<=", "subsubtype", 500]],
             "layout": {
@@ -766,8 +767,8 @@
         {
             "id": "tekst_punkt_by<1000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 5,
-            "maxzoom" : 10,
+            "minzoom": 5,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 500], ["<=", "subsubtype", 1000]],
             "layout": {
@@ -788,8 +789,8 @@
         {
             "id": "tekst_punkt_by<5000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 10,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 1000], ["<=", "subsubtype", 5000]],
             "layout": {
@@ -810,8 +811,8 @@
         {
             "id": "tekst_punkt_by<10000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 10,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 5000], ["<=", "subsubtype", 10000]],
             "layout": {
@@ -832,8 +833,8 @@
 		{
             "id": "tekst_punkt_by<25000_B",
             "source-layer": "tekst_punkt",
-            "minzoom" : 4,
-			"maxzoom" : 10,
+            "minzoom": 4,
+			"maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 10000], ["<=", "subsubtype", 25000]],
             "layout": {
@@ -854,8 +855,8 @@
         {
             "id": "tekst_punkt_by<25000",
             "source-layer": "tekst_punkt",
-       		"minzoom" : 2,
-            "maxzoom" : 4,
+       		"minzoom": 2,
+            "maxzoom": 4,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 10000], ["<=", "subsubtype", 25000]],
             "layout": {
@@ -876,8 +877,8 @@
         {
             "id": "tekst_punkt_by<50000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 10,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 25000], ["<=", "subsubtype", 50000]],
             "layout": {
@@ -898,8 +899,8 @@
         {
             "id": "tekst_punkt_by<100000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 10,
+            "minzoom": 2,
+            "maxzoom": 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 50000], ["<=", "subsubtype", 100000]],
             "layout": {
@@ -920,8 +921,8 @@
         {
             "id": "tekst_punkt_by<300000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 9,
+            "minzoom": 2,
+            "maxzoom": 9,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 105000], ["<=", "subsubtype", 300000]],
             "layout": {
@@ -942,8 +943,8 @@
         {
             "id": "tekst_punkt_by>300000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 2,
-            "maxzoom" : 9,
+            "minzoom": 2,
+            "maxzoom": 9,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 300000]],
             "layout": {
@@ -964,7 +965,7 @@
         {
             "id": "tekst_punkt_stationsnavn",
             "source-layer": "tekst_punkt",
-            "minzoom" : 11,
+            "minzoom": 11,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "tog"]],
             "layout": {
