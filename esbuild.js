@@ -14,16 +14,26 @@ const entryPoints = {
   'ol/style': `${srcDir}/ol.css`,
   'ml/main': `${srcDir}/ml.js`,
   'ml/style': `${srcDir}/ml.css`,
+  'll/main': `${srcDir}/ll.js`,
+  'll/style': `${srcDir}/ll.css`
+}
+const loader = {
+  '.png': 'copy',
 }
 const frameworks = [
   {
     name: 'ml',
     longName: 'MapLibre',
-    projections: ['3857'] // Only create test files for the given projection.
+    projections: ['3857'] // Only create test files for the given projections.
   },
   {
     name: 'ol', // If no projections array, create test files for all projections.
     longName: 'OpenLayers'
+  },
+  {
+    name: 'll',
+    longName: 'Leaflet',
+    projections: ['3857']
   }
 ]
 
@@ -151,6 +161,7 @@ if (process.env.NODE_ENV === 'production') {
     bundle: true,
     splitting: true,
     format: 'esm',
+    loader,
     plugins: [
       copy({
         assets: [
@@ -170,7 +181,8 @@ if (process.env.NODE_ENV === 'production') {
     outdir: outDir,
     bundle: true,
     splitting: true,
-    format: 'esm'
+    format: 'esm',
+    loader
   })
   .then((result) => {
     result.serve({
