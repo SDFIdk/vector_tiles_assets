@@ -1,4 +1,4 @@
-#Developing
+# Developing
 
 ## Configuration (config.js)
 To run the test server a `config.js` file is required in the root folder.  You'll need to supply your own token for your particular configuration. You can copy and edit `config.example.js` to use as your own `config.js`.
