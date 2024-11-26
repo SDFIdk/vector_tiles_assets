@@ -10,7 +10,7 @@ Install the [npm package](@dataforsyningen/vector_tiles_assets):
 
 ```npm install @dataforsyningen/vector_tiles_assets```
 
-You can then copy the assets you need into your project from `./node_modules/@dataforsyningen/vector_tiles_assets`. For instance, see how it can be done with esbuild [here](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/escopy.js)
+You can then copy the assets you need into your project from `./node_modules/@dataforsyningen/vector_tiles_assets`. For instance, see how it can be done with esbuild [here](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/escopy.js).
 
 Alternatively you can load the assets directly from our CDN, for instance:
 
