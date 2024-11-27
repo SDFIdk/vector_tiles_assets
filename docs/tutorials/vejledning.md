@@ -1,6 +1,6 @@
 # Vejledning til brug af Vector Tiles - Skærmkort på Dataforsyningen
 Vector Tiles Skærmkortet kan tilgåes igennem [kortvisningen](https://vectortiles.dataforsyningen.dk), og gennem [Dataforsyningen](https://dataforsyningen.dk/data/4995) kan du læse mere om produktet, og den fremadrettet udvikling. 
-Vector Tiles Skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Stylefilerne for disse 4 kort er tilgængelige under [styles/official](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles/official), hvorfra brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i kortvisningen og få vist sit helt eget kort.
+Vector Tiles Skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Stylefilerne for disse 4 kort er tilgængelige under [styles/official](https://github.com/SDFIdk/vector_tiles_assets/tree/main/styles/official), hvorfra brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i kortvisningen og få vist sit helt eget kort.
 Herunder følger en kort beskrivelse af datamodellen for Vector Tiles Skærmkort samt en kort vejledning til hvordan du selv kan ændre i stylefilen, og få vist din egen udgave af skærmkortet, direkte i browseren. 
 
 
