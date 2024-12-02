@@ -8,3 +8,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - Assets are now available as a cdn at `https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/`.
+- extent changed, so the extent now follows the EEZ
+from:
+Xmin: 120000
+xmax: 958860.8
+Ymin: 5661139.2
+Ymax: 6500000
+to:
+Xmin: 139000
+xmax: 977860.8
+Ymin: 5661139.2
+Ymax: 6500000
