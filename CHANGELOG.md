@@ -19,3 +19,4 @@ Xmin: 139000
 xmax: 977860.8
 Ymin: 5661139.2
 Ymax: 6500000
+- EPSG 3857 (webmercator) available at `https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/tree/main/styles/official`.
