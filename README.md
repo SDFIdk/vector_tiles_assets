@@ -20,6 +20,6 @@ using any release version or `latest`.
 
 ## Read More
 - [Guide to Vector Tiles skærmkort (in Danish)](https://github.com/SDFIdk/vector_tiles_assets/blob/main/docs/tutorials/vejledning.md)
-- [Qgis, ArcGIS pro and other GIS clients](https://github.com/SDFIdk/vector_tiles_assets/blob/main/docs/tutorials/qgis.md)
+- [Qgis, ArcGIS pro and other GIS clients](https://github.com/SDFIdk/vector_tiles_assets/blob/main/docs/tutorials/gis_vejledning.md)
 - [Changelog](https://github.com/SDFIdk/vector_tiles_assets/blob/main/CHANGELOG.md)
 - [The Vector Tiles API](https://github.com/SDFIdk/vector_tiles_assets/blob/main/docs/tutorials/api.md)
