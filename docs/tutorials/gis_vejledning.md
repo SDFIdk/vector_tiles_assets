@@ -49,7 +49,7 @@ Når linket er kopieret ind, dukker der efter et par milisekunder endnu en mulig
 ![billede](https://github.com/user-attachments/assets/193cfd10-ba39-4aa9-9a43-3d67f48d33f5)
 
 Til sidst skal du udfylde ’Custom parameter’ 
-Her skal du skrive ’token’ ud for parameter, og så finde det dit token fra dataforsyning og kopirer ind. Tilsidst klikker du på add. 
+Her skal du skrive ’token’ ud for parameter, og så finde det dit token fra dataforsyning og kopiere ind. Tilsidst klikker du på add. 
 
 
 ## QGIS <b name="qgis"></b>
