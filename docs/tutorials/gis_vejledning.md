@@ -30,7 +30,7 @@ Læs mere om indlæsning af style filer direkte under afsnittet [ArcGIS Pro](#ar
 [https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/latest/styles/official/3857_skaermkort_moerkt.json](https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/latest/styles/official/3857_skaermkort_moerkt.json)
 
 
-herovenfor henvises der til de aktuelle udgaver af stylefilerne (latest). Der kan også linkes til tidligere style filer (fra v0.1.2) ved at definere en specifik version, eksempelvis [https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/v0.1.2/styles/official/skaermkort_klassisk.json](https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/v0.1.2/styles/official/skaermkort_klassisk.json). Se overblik over versioner under [tags](https://github.com/SDFIdk/vector_tiles_assets/tags).
+herovenfor henvises der til de aktuelle udgaver af stylefilerne (latest). Der kan også linkes til tidligere style filer (fra v0.2.1) ved at definere en specifik version, eksempelvis [https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/v0.2.1/styles/official/skaermkort_klassisk.json](https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/v0.2.1/styles/official/skaermkort_klassisk.json). Se overblik over versioner under [tags](https://github.com/SDFIdk/vector_tiles_assets/tags).
 
 
 ## ArcGIS Pro <a name="arcgis"></a>
