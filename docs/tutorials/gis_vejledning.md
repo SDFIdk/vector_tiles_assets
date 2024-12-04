@@ -30,7 +30,7 @@ Læs mere om indlæsning af style filer direkte under afsnittet [ArcGIS Pro](#ar
 [https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/latest/styles/official/3857_skaermkort_moerkt.json](https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/latest/styles/official/3857_skaermkort_moerkt.json)
 
 
-herovenfor henvises der til de aktuelle udgaver af stylefilerne (lateste). Der kan også linkes til tidligere style filer, ved at definere en specifik version, eksempelvis v0.1.2. Se overblik over versioner under [tags](https://github.com/SDFIdk/vector_tiles_assets/tags).
+herovenfor henvises der til de aktuelle udgaver af stylefilerne (latest). Der kan også linkes til tidligere style filer (fra v0.1.2) ved at definere en specifik version, eksempelvis [https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/v0.1.2/styles/official/skaermkort_klassisk.json](https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/v0.1.2/styles/official/skaermkort_klassisk.json). Se overblik over versioner under [tags](https://github.com/SDFIdk/vector_tiles_assets/tags).
 
 
 ## ArcGIS Pro <a name="arcgis"></a>
@@ -44,7 +44,7 @@ Map - Add Data - Data from path
 
 Derefter dukker der en boks op, som først kun har ’Path’, som udfyldes med link til [style file](#stylefiler) i webmercator. 
 
-Når linket er kopiret ind, dukker der efter et par milisekunder endnu en mulighed op – service type – her skal du udfylde 'Vector Tile Service'.  
+Når linket er kopieret ind, dukker der efter et par milisekunder endnu en mulighed op – service type – her skal du udfylde 'Vector Tile Service'.  
 
 ![billede](https://github.com/user-attachments/assets/193cfd10-ba39-4aa9-9a43-3d67f48d33f5)
 
