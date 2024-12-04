@@ -55,3 +55,4 @@ Her skal du skrive ’token’ ud for parameter, og så finde det dit token fra 
 ## QGIS <b name="qgis"></b>
 
 Brug Vector Tiles i QGIS med Dataforsyningens QGIS-plugin: https://confluence.sdfi.dk/display/MYD/Dataforsyning-plugin+til+QGIS
+Find vejledningen her: https://confluence.sdfi.dk/x/q4FuCg
