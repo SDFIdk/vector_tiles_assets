@@ -51,6 +51,11 @@ Når linket er kopieret ind, dukker der efter et par milisekunder endnu en mulig
 Til sidst skal du udfylde ’Custom parameter’ 
 Her skal du skrive ’token’ ud for parameter, og så finde det dit token fra dataforsyning og kopiere ind. Tilsidst klikker du på add. 
 
+### Sådan får du vist Vector Tiles - Skærmkort i UTM zone 32N (EPSG:25832) i ArcGIS pro
+
+Når du indlæser Vector Tiles med Webmercator stile filerne, kan du stadigvæk sætte projektionen i map view til at være UTM zone 32N (EPSG:25832), og ArcGIS Pro vil så lave en reprojektering, ligesom den eksemeplvis gør med det standard baggrundkort der indlæses. 
+Du kan desværre ikke bruge stile flilerne med UTM dirkete i ArcGIS Pro. 
+
 
 ## QGIS <b name="qgis"></b>
 
