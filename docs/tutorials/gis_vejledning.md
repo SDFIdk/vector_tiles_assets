@@ -60,4 +60,4 @@ Du kan desværre ikke bruge stile flilerne med UTM dirkete i ArcGIS Pro.
 ## QGIS <b name="qgis"></b>
 
 Brug Vector Tiles i QGIS med Dataforsyningens QGIS-plugin: https://confluence.sdfi.dk/display/MYD/Dataforsyning-plugin+til+QGIS
-Find vejledningen her: https://confluence.sdfi.dk/x/q4FuCg
+Find vejledningen her: https://confluence.sdfi.dk/x/vIBwCQ
