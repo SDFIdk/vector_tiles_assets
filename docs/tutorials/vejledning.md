@@ -64,6 +64,8 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - ikke tildelt 
   - tank/silo
 - **bykerne**
+- **højbebyggelse**
+- **lavbebyggelse**
 - **plads** (bruges ikke)
 - **rekreativområde**
 
