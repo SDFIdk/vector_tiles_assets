@@ -176,7 +176,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - hav
 
 
-[^1]:Laget vandløbsflader, er et datasæt fremstillet vandløbslinjer fra Geodanmark. Laget er IKKE tilgængeligt via GeoDanmark  
+[^1]:Laget vandløbsflader, er et datasæt fremstillet fra temaet vandløbskant fra GeoDanmark. Laget er tilgængeligt som download via [dataforsyningen.](https://dataforsyningen.dk/data/4969) 
 
 > ## vandloeb <b name="vandloeb"></b>
 >
