@@ -31,7 +31,7 @@ Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i 
 De fleste data stammer fra GeoDanmark Vektor, derudover bruges også Danske Stednavne, Danmarks Adresseregister (DAR) og en række øvrige mindre datasæt. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. Datamodellen omfatter endnu ikke generaliseret data, hvilket bl.a. kan ses ved at der i de yderste zoomniveau fortsat vises mange veje. 
 
 > **Opdateringsfrekvens**
-> Data opdateres hver den 1. i måneden. 
+> Data opdateres hver den 1. lørdag i måneden. 
 
 
 
