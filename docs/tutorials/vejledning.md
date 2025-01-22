@@ -89,7 +89,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - **gartneri**
 - **råstofområde**
 - **teknisk anlæg**
-- **teknisk areal**
+- **tekniskareal**
   - affaldsanlæg
   - energiforsyningsanlæg
   - genbrugsplads
