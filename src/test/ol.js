@@ -70,7 +70,7 @@ apply(map, stylefile, { resolutions: projConfig.resolutions, projection: projCon
 .then(layerGroup => {
   layerGroup.getLayers().forEach(layer => {
     const url = layer?.getSource()?.urls ? layer.getSource().urls[0] : ''
-    if (url?.includes('api.dataforsyningen.dk')) {
+    if (url?.includes('api.dataforsyningen.dk') && !url?.includes('token')) {
       layer.getSource().setTileLoadFunction(tileLoadFunctionWithTokenHeader)
     }
   })

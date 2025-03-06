@@ -1,6 +1,6 @@
 {
   "name": "@dataforsyningen/vector_tiles_assets",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Klimadatastyrelsen's assets for vector tiles.",
   "main": "./public/index.html",
   "type": "module",
@@ -32,7 +32,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0",
+    "esbuild": "^0.25.0",
     "esbuild-plugin-copy": "^2.1.1",
     "ol": "^10.2.1",
     "proj4": "^2.12.1",

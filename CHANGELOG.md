@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [0.2.2] - 2025-03-06
+
+### Fixed
+
+- Fixed token being added to the header if it was already included as a URL parameter.
+- Fixed token being added to mapLibre and leaflet for calls that was not to dataforsyningen.dk.
+
 ## [0.2.1] - 2024-11-20
 
 ### Added
