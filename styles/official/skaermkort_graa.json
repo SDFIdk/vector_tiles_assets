@@ -2,6 +2,7 @@
     "version": 8,
     "name": "name",
     "glyphs": "/glyphs/{fontstack}/{range}.pbf",
+	"sprite": "/sprites/official/sprite",
     "sources": {
         "vector-source": {
             "type": "vector",
@@ -603,15 +604,19 @@
             },
             "source": "vector-source"
         },
-        {
+		{
             "id": "punkter_togstation",
             "source-layer": "punkter",
             "minzoom": 11,
-            "type": "circle",
+            "type": "symbol",
             "filter": ["all", ["==", "type", "togstation"]],
+            "layout": {
+				"icon-image": "Cirkel_moerk_graa",
+				"icon-size": 0.3,
+                "icon-allow-overlap": true
+				},
             "paint": {
-                "circle-color": "#C3C3C3",
-                "circle-radius": 7
+                "icon-color": "#C3C3C3"
             },
             "source": "vector-source"
         },

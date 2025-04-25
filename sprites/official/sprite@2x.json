@@ -1,0 +1,44 @@
+{
+  "Cirkel_graa": {
+    "height": 132,
+    "pixelRatio": 2,
+    "width": 132,
+    "x": 134,
+    "y": 0
+  },
+  "Cirkel_hvid": {
+    "height": 132,
+    "pixelRatio": 2,
+    "width": 132,
+    "x": 266,
+    "y": 0
+  },
+  "Cirkel_moerk_graa": {
+    "height": 132,
+    "pixelRatio": 2,
+    "width": 132,
+    "x": 134,
+    "y": 132
+  },
+  "Cirkel_roed": {
+    "height": 132,
+    "pixelRatio": 2,
+    "width": 132,
+    "x": 0,
+    "y": 134
+  },
+  "Fly": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 266,
+    "y": 132
+  },
+  "Station_S": {
+    "height": 134,
+    "pixelRatio": 2,
+    "width": 134,
+    "x": 0,
+    "y": 0
+  }
+}
