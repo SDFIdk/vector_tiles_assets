@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [0.3.0] - 2025-04-28
+
+### Added
+
+- Added sprites.
+
 ## [0.2.2] - 2025-03-06
 
 ### Fixed
