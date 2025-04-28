@@ -170,6 +170,10 @@ if (process.env.NODE_ENV === 'production') {
           {
             from: ['./glyphs/**/*'],
             to: ['./glyphs']
+          },
+          {
+            from: ['./sprites/**/*'],
+            to: ['./sprites']
           }
         ]
       })
