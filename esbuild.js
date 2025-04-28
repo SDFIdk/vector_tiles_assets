@@ -144,6 +144,7 @@ if (process.env.NODE_ENV === 'production') {
       console.log(`${folderDir}/${file}`)
       const template = await readFile(`${folderDir}/${file}`)
       const content = template.replace('/glyphs/', `${repoPrefix}/glyphs/`)
+        .replace('/sprites/', `${repoPrefix}/sprites/`)
       const dir = `${outDir}/${folderDir}`
       if (!existsSync(dir)){
         mkdirSync(dir, { recursive: true })
