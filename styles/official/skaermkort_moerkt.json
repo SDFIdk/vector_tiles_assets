@@ -524,9 +524,6 @@
 				"icon-size": 0.3,
                 "icon-allow-overlap": true
 				},
-            "paint": {
-                "icon-color": "#919191"
-            },
             "source": "vector-source"
         },
         {

@@ -643,6 +643,85 @@
             },
             "source": "vector-source"
         },
+		{
+            "id": "lufthavnssymbol",
+            "source-layer": "tekst_punkt",
+            "minzoom" : 9,
+            "maxzoom" : 14,
+            "type": "symbol",
+            "filter": ["all", ["==", "type", "lufthavn"]],
+            "layout": {
+				"icon-image": "Fly",
+				"icon-size": {"stops": [[10, 0.4], [11, 0.6], [12, 0.6], [13, 0.8]]},
+                "icon-allow-overlap": true
+				},
+            "source": "vector-source"
+        },
+		{
+            "id": "punkter_togstation",
+            "source-layer": "punkter",
+            "minzoom" : 9,
+            "maxzoom" : 14,
+            "type": "symbol",
+            "filter": ["all", ["==", "type", "togstation"]],
+            "layout": {
+				"icon-image": "Cirkel_roed",
+				"icon-size": {"stops": [[10, 0.08], [11, 0.08], [12, 0.08], [13, 0.1], [14, 0.1]]},
+                "icon-allow-overlap": true
+				},
+            "source": "vector-source"
+        },
+		{
+            "id": "stationssymbol_b",
+            "source-layer": "punkter",
+            "minzoom" : 14,
+            "type": "symbol",
+            "filter": ["all", ["==", "type", "togstation"]],
+            "layout": {
+				"icon-image": "Cirkel_hvid",
+				"icon-size": {"stops": [[14, 0.25], [16, 0.3], [18, 0.4]]},
+                "icon-allow-overlap": true
+				},
+            "paint": {
+                "icon-color": "#ffffff"
+            },
+            "source": "vector-source"
+        },
+		{
+            "id": "stationssymbol",
+            "source-layer": "punkter",
+            "minzoom" : 14,
+            "type": "symbol",
+            "filter": ["all", ["==", "type", "togstation"]],
+            "layout": {
+				"icon-image": "Station_S",
+				"icon-size": {"stops": [[14, 0.25], [16, 0.3], [18, 0.4]]},
+                "icon-allow-overlap": true
+				},
+            "paint": {
+                "icon-color": "#787878"
+            },
+            "source": "vector-source"
+        },
+        {
+            "id": "tekst_punkt_stationsnavn",
+            "source-layer": "tekst_punkt",
+            "minzoom" : 14,
+            "type": "symbol",
+            "filter": ["all", ["==", "subtype", "tog"]],
+            "layout": {
+                "text-field": "{navn}",
+                "text-offset": [1, 3],
+                "text-transform": "uppercase",
+                "text-size": 11,
+                "text-font": ["Open Sans Regular"],
+                "text-padding": 5
+            },
+            "paint": {
+                "text-color": "#FF0000"
+            },
+            "source": "vector-source"
+        }, 
         {
             "id": "tekst_punkt_sevaerdighed<10000",
             "source-layer": "tekst_punkt",
@@ -1732,7 +1811,7 @@
                 "text-font": ["Open Sans Bold"],
                 "text-padding": 1,
 				"text-offset": [1, 0],
-                "text-allow-overlap": false,
+                "text-allow-overlap": true,
                 "text-ignore-placement": false
             },
             "paint": {
@@ -1937,91 +2016,6 @@
             },
             "paint": {
                 "text-color": "#6A6B6D"
-            },
-            "source": "vector-source"
-        },
-		{
-            "id": "lufthavnssymbol",
-            "source-layer": "tekst_punkt",
-            "minzoom" : 9,
-            "maxzoom" : 14,
-            "type": "symbol",
-            "filter": ["all", ["==", "type", "lufthavn"]],
-            "layout": {
-				"icon-image": "Fly",
-				"icon-size": {"stops": [[10, 0.4], [11, 0.6], [12, 0.6], [13, 0.8]]},
-                "icon-allow-overlap": true
-				},
-            "paint": {
-                "icon-color": "#787878"
-            },
-            "source": "vector-source"
-        },
-		{
-            "id": "punkter_togstation",
-            "source-layer": "punkter",
-            "minzoom" : 9,
-            "maxzoom" : 14,
-            "type": "symbol",
-            "filter": ["all", ["==", "type", "togstation"]],
-            "layout": {
-				"icon-image": "Cirkel_roed",
-				"icon-size": {"stops": [[10, 0.08], [11, 0.08], [12, 0.08], [13, 0.1], [14, 0.1]]},
-                "icon-allow-overlap": true
-				},
-            "paint": {
-                "icon-color": "#FF6B6B"
-            },
-            "source": "vector-source"
-        },
-		{
-            "id": "stationssymbol_b",
-            "source-layer": "punkter",
-            "minzoom" : 14,
-            "type": "symbol",
-            "filter": ["all", ["==", "type", "togstation"]],
-            "layout": {
-				"icon-image": "Cirkel_hvid",
-				"icon-size": {"stops": [[14, 0.25], [16, 0.3], [18, 0.4]]},
-                "icon-allow-overlap": true
-				},
-            "paint": {
-                "icon-color": "#ffffff"
-            },
-            "source": "vector-source"
-        },
-		{
-            "id": "stationssymbol",
-            "source-layer": "punkter",
-            "minzoom" : 14,
-            "type": "symbol",
-            "filter": ["all", ["==", "type", "togstation"]],
-            "layout": {
-				"icon-image": "Station_S",
-				"icon-size": {"stops": [[14, 0.25], [16, 0.3], [18, 0.4]]},
-                "icon-allow-overlap": true
-				},
-            "paint": {
-                "icon-color": "#787878"
-            },
-            "source": "vector-source"
-        },
-        {
-            "id": "tekst_punkt_stationsnavn",
-            "source-layer": "tekst_punkt",
-            "minzoom" : 14,
-            "type": "symbol",
-            "filter": ["all", ["==", "subtype", "tog"]],
-            "layout": {
-                "text-field": "{navn}",
-                "text-offset": [1, 3],
-                "text-transform": "uppercase",
-                "text-size": 11,
-                "text-font": ["Open Sans Regular"],
-                "text-padding": 5
-            },
-            "paint": {
-                "text-color": "#FF0000"
             },
             "source": "vector-source"
         }

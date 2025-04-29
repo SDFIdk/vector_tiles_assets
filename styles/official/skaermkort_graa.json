@@ -611,13 +611,10 @@
             "type": "symbol",
             "filter": ["all", ["==", "type", "togstation"]],
             "layout": {
-				"icon-image": "Cirkel_moerk_graa",
+				"icon-image": "Cirkel_graa",
 				"icon-size": 0.3,
                 "icon-allow-overlap": true
 				},
-            "paint": {
-                "icon-color": "#C3C3C3"
-            },
             "source": "vector-source"
         },
         {

@@ -533,7 +533,7 @@
 		{
             "id": "punkter_togstation",
             "source-layer": "punkter",
-            "minzoom": 16,
+            "minzoom": 15,
             "type": "symbol",
             "filter": ["all", ["==", "type", "togstation"]],
             "layout": {
@@ -541,9 +541,6 @@
 				"icon-size": 0.3,
                 "icon-allow-overlap": true
 				},
-            "paint": {
-                "icon-color": "#919191"
-            },
             "source": "vector-source"
         },
         {
