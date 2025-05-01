@@ -37,21 +37,26 @@ eks: [https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/latest/styles/of
 
 ## ArcGIS Pro <a name="arcgis"></a>
 
-For at tilgå Vector Tiles Skærmkort I ArcGIS Pro, skal du i stedet for APIét, bruge style filen direkte. Du skal bruge style filerne i Webmercator (EPSG:3857), som er linket til i afsnitet her ovenfor [style filer](#stylefiler).  
+For at tilgå Vector Tiles Skærmkort I ArcGIS Pro, skal du i stedet for APIét, bruge style filen direkte. Det er kun stylefilerne i Webmercator (EPSG:3857) der virker i ArcGIS Pro, der er linket til stylefilerne her ovenfor [style filer](#stylefiler).  
 
 Find 'Data From Path' under: 
 Map - Add Data - Data from path
 
 ![billede](https://github.com/user-attachments/assets/a155d9e4-8227-4154-a27b-27e0949f7f1d)
 
-Derefter dukker der en boks op, som først kun har ’Path’, som udfyldes med link til [style file](#stylefiler) i webmercator. 
+Derefter dukker der en boks op, som først kun har ’Path’, som udfyldes med link til [style file](#stylefiler) i webmercator efterfulgt af `?token=XXXXX` hvori dit dataforsynings token indsættes.  
+Eksmepelvis sådan her: 
 
-Når linket er kopieret ind, dukker der efter et par milisekunder endnu en mulighed op – service type – her skal du udfylde 'Vector Tile Service'.  
+https://cdn.dataforsyningen.dk/assets/vector_tiles_assets/latest/styles/official/3857_skaermkort_daempet.json?token=XXX
 
-![billede](https://github.com/user-attachments/assets/193cfd10-ba39-4aa9-9a43-3d67f48d33f5)
 
-Til sidst skal du udfylde ’Custom parameter’ 
-Her skal du skrive ’token’ ud for parameter, og så finde det dit token fra dataforsyning og kopiere ind. Tilsidst klikker du på add. 
+
+Når linket er kopieret ind, og du har udfyldt token, dukker der efter et par milisekunder endnu en mulighed op – service type – her skal du udfylde 'Vector Tile Service'.  
+
+![billede](https://github.com/user-attachments/assets/371495a3-3cba-474c-8d8f-04ea6adb533c)
+
+
+Tilsidst klikker du på add. 
 
 ### Sådan får du vist Vector Tiles - Skærmkort i UTM zone 32N (EPSG:25832) i ArcGIS pro
 
@@ -62,4 +67,4 @@ Du kan desværre ikke bruge stile flilerne med UTM dirkete i ArcGIS Pro.
 ## QGIS <b name="qgis"></b>
 
 Brug Vector Tiles i QGIS med Dataforsyningens QGIS-plugin: https://confluence.sdfi.dk/display/MYD/Dataforsyning-plugin+til+QGIS
-Find vejledningen her: https://confluence.sdfi.dk/x/vIBwCQ
+Find vejledningen [her](https://confluence.sdfi.dk/pages/viewpage.action?pageId=191398238)
