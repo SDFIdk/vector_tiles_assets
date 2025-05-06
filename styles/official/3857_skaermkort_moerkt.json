@@ -533,7 +533,7 @@
 		{
             "id": "punkter_togstation",
             "source-layer": "punkter",
-            "minzoom": 15,
+            "minzoom": 16,
             "type": "symbol",
             "filter": ["all", ["==", "type", "togstation"]],
             "layout": {
