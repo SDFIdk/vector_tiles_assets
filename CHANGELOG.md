@@ -3,7 +3,13 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [0.3.0] - 2025-04-30
+## [0.3.2] - 2025-05-07
+
+### Changed
+
+- Adjustments to the stylefiles.
+
+## [0.3.1] - 2025-04-30
 
 ### Changed
 
