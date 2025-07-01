@@ -60,7 +60,7 @@ Tilsidst klikker du på add.
 
 ### OBS - virker kun delvist i 3.4 og 3.5 
 
-Desværre vises enkelte tiles ikke i ArcGIS pro 3.4 og 3.5. Vi har rettet henvendelse til Geoinfo (leverandør af ArcGIS pro) og håber på en løsning hurtigst muligt. I ArcGIS Pro 3.2 og 3.3, virker det som det skal, og evt. også i tidligere versioner, men er ikke testede. 
+Desværre vises enkelte tiles ikke i ArcGIS pro 3.4 og 3.5. Esri oplyser at problemet bliver fikset i version 3.6, der forventes udgivet i oktober 2025. I tidligere versioner af ArcGIS Pro er der ikke nogle problemer. 
 
 ### Sådan får du vist Vector Tiles - Skærmkort i UTM zone 32N (EPSG:25832) i ArcGIS pro
 
